@@ -1,5 +1,7 @@
 # Racer '83
 
+*Check out the [leaderboard](https://github.com/adamralph/racer83/wiki/Leaderboard)!*
+
 Lifted from my talk "Tales from an OSS Contributor".
 
 Back in '83 my Dad bought me my first computer, the humble [Acorn Electron](https://en.wikipedia.org/wiki/Acorn_Electron), little brother of the fabled [BBC Micro](https://en.wikipedia.org/wiki/BBC_Micro).
