@@ -1,12 +1,12 @@
 10 MODE 1
- 20 VDU 23,1,0;0;0;0;
- 30 COLOUR 2
- 40 CAR=20
- 50 ROAD=15
- 60 ANGLE=0
- 70 METRES=-19
- 80 COLOUR 2
- 90 PRINT TAB(0, 31) " ||||||||||||||||        ||||||||||||||"
+20 VDU 23,1,0;0;0;0;
+30 COLOUR 2
+40 CAR=20
+50 ROAD=15
+60 ANGLE=0
+70 METRES=-19
+80 COLOUR 2
+90 PRINT TAB(0, 31) " ||||||||||||||||        ||||||||||||||"
 100 IF POINT((CAR*32)+16,671)<>0 THEN 310
 110 COLOUR 2
 120 PRINT TAB(ROAD, 31) "||        ||"
