@@ -1,5 +1,6 @@
     5 MODE 1                                          : REM 320x256, 4 colours, 40x32 chars
     6 VDU 23,1,0;0;0;0;                               : REM switch off cursor
+    7 SOUND &11,1,120,100
    10 COLOUR 2
    12 PRINT TAB(6,4)  "###        #####            "
    13 PRINT TAB(6,5)  "###   ##########            "
@@ -22,28 +23,14 @@
   130 PRINT TAB(28,18) "|__/  __/ "
   140 COLOUR 3
   141 PRINT TAB(10,24) "Press SPACE to play"
-  142 P=61
-  143 REPEAT
-  144 count=1
-  145 P=P+4
-  146 RESTORE 170
-  147 pitch=P
-  148 REPEAT
-  149 READ increase
-  150 count =count+1
-  151 pitch=pitch+increase
-  152 SOUND 1,-10,pitch,5
-  153 UNTIL count=32
-  154 UNTIL FALSE
-  155 DATA 0,8,4,8,8,-16, 16,0,-4,-16,16,
-0,-4,-16, 16,0,-20,8,4,8,8,-16,16,20,-8, -12, -16, 16,12,0,0,0,1
-  169 REPEAT UNTIL INKEY(-99)
+  142 ENVELOPE 1,7,2,1,1,1,1,1,121,-10,-5,-2,120,120  : REM level up
+  143 ENVELOPE 2,1,2,-2,2,10,20,10,1,0,0,-1,100,100   : REM turn
+  144 ENVELOPE 3,3,0,0,0,0,0,0,121,-10,-5,-2,120,120  : REM pothole
+  145 ENVELOPE 4,8,1,-1,1,1,1,1,121,-10,-5,-2,120,120 : REM crash
+  155 REPEAT UNTIL INKEY(-99)
+  160 SOUND &11,1,100,100
   170 CLS
   180 VDU 19,1,9,0,0,0
-  190 ENVELOPE 1,7,2,1,1,1,1,1,121,-10,-5,-2,120,120  : REM level up
-  200 ENVELOPE 2,1,2,-2,2,10,20,10,1,0,0,-1,100,100   : REM turn
-  210 ENVELOPE 3,3,0,0,0,0,0,0,121,-10,-5,-2,120,120  : REM pothole
-  220 ENVELOPE 4,8,1,-1,1,1,1,1,121,-10,-5,-2,120,120 : REM crash
   230 KA$=CHR$(185)                                   : REM car symbol
   240 RD$=CHR$(191)                                   : REM road symbol
   250 DIM HL$(8)                                      : REM pothole symbols
